@@ -1,4 +1,5 @@
 %global _prefix /usr/local
+%global __strip /bin/true
 
 Name:    jaeger-all-in-one
 Version: 1.8.2
@@ -27,7 +28,8 @@ CNCF Jaeger, a Distributed Tracing System
 rm -rf $RPM_BUILD_ROOT
 %{__install} -m 0755 -d %{buildroot}%{_bindir}
 %{__install} -m 0755 -d %{buildroot}/etc
-%{__install} -m 0755 jaeger-all-in-one %{buildroot}/%{_bindir}/%{name}
+#%{__install} -m 0755 jaeger-all-in-one %{buildroot}/%{_bindir}/%{name}
+cp jaeger-all-in-one %{buildroot}/%{_bindir}/%{name}
 %{__install} -m 0644 %{SOURCE2} %{buildroot}/etc/jaeger-all-in-one.yaml
 
 %if %{use_systemd}
