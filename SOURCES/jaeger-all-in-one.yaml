@@ -1,0 +1,5 @@
+es:
+  tags-as-fields:
+    all: true
+  index-prefix: team.jaeger
+  server-urls: "http://127.0.0.1:9200"

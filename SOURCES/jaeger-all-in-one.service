@@ -1,0 +1,14 @@
+[Unit]
+Description=CNCF Jaeger, a Distributed Tracing System
+After=network.target
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/jaeger-all-in-one.yaml
+ExecStart=/usr/local/bin/jaeger-all-in-one start
+ExecStop=/usr/local/bin/jaeger-all-in-one stop
+Restart=on-abort
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
